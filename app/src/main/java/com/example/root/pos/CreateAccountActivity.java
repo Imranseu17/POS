@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.AppCompatButton;
 
-import com.example.root.pos.databinding.ActivityCreateAccountBinding;
 import com.example.root.pos.databinding.ActivityCreateAccountBindingImpl;
 import com.example.root.pos.model.User;
 

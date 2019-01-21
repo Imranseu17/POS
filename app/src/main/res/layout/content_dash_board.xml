@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="home"
+            type="com.example.root.pos.model.Home"/>
+
+    </data>
+
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fcfcfc"
@@ -36,7 +47,7 @@
                     android:layout_height="46dp"
                     android:background="@drawable/circle_bg_deeppurple"
                     android:padding="8dp"
-                    android:src="@drawable/ic_outline_local_gas_station"
+                    android:src="@drawable/ic_add_shopping_cart_black_24dp"
                     android:tint="@android:color/white" />
 
                 <TextView
@@ -44,7 +55,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="15sp"
-                    android:textStyle="bold|italic" />
+                    android:textStyle="bold|italic"
+                    android:text="@{home.productSale}"/>
 
                 <View
                     android:id="@+id/line_sale"
@@ -83,7 +95,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="15sp"
-                    android:textStyle="bold|italic"  />
+                    android:textStyle="bold|italic"
+                    android:text="@{home.profile}"/>
 
                 <View
                     android:id="@+id/line_profile"
@@ -131,7 +144,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="15sp"
-                    android:textStyle="bold|italic"  />
+                    android:textStyle="bold|italic"
+                    android:text="@{home.location}"/>
 
                 <View
                     android:id="@+id/line_location"
@@ -170,7 +184,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="15sp"
-                    android:textStyle="bold|italic"  />
+                    android:textStyle="bold|italic"
+                    android:text="@{home.search}"/>
 
                 <View
                     android:id="@+id/line_search"
@@ -211,7 +226,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:textSize="15sp"
-                android:textStyle="bold|italic"  />
+                android:textStyle="bold|italic"
+                android:text="@{home.sales_History}"/>
 
             <View
                 android:id="@+id/line_history"
@@ -224,3 +240,4 @@
     </android.support.v7.widget.CardView>
 
 </LinearLayout>
+</layout>

@@ -1,7 +1,8 @@
 package com.example.root.pos;
 
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,12 +14,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.root.pos.activities.HistoryActivity;
+import com.example.root.pos.activities.LocationActivity;
+import com.example.root.pos.activities.ProfileActivity;
+import com.example.root.pos.activities.SaleActivity;
+import com.example.root.pos.activities.SearchActivity;
+import com.example.root.pos.databinding.ActivityDashBoardBinding;
+import com.example.root.pos.model.Home;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DashBoardActivity extends AppCompatActivity
 
 {
+
+    ActivityDashBoardBinding home ;
 
     @BindView(R.id.product_sale)
     CardView productsale;
@@ -50,18 +61,26 @@ public class DashBoardActivity extends AppCompatActivity
     @BindView(R.id.line_history)
     View history;
 
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dash_board);
+
+        home = DataBindingUtil.setContentView(this,R.layout.activity_dash_board);
 
         ButterKnife.bind(this);
         setTitle("     Home");
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        home.setHome(new Home("Product Sale", "Profile","Location","Search","Sales History"));
         setSupportActionBar(toolbar);
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -78,6 +97,8 @@ public class DashBoardActivity extends AppCompatActivity
                 lineSearch.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.black_overlay));
                 history.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.black_overlay));
 
+                startActivity(new Intent(DashBoardActivity.this, SaleActivity.class));
+
 
             }
         });
@@ -90,6 +111,8 @@ public class DashBoardActivity extends AppCompatActivity
                 lineLocatin.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.black_overlay));
                 lineSearch.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.black_overlay));
                 history.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.black_overlay));
+
+                startActivity(new Intent(DashBoardActivity.this, ProfileActivity.class));
             }
         });
 
@@ -102,6 +125,8 @@ public class DashBoardActivity extends AppCompatActivity
                 lineLocatin.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.green));
                 lineSearch.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.black_overlay));
                 history.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.black_overlay));
+
+                startActivity(new Intent(DashBoardActivity.this, LocationActivity.class));
             }
         });
 
@@ -114,6 +139,8 @@ public class DashBoardActivity extends AppCompatActivity
                 lineLocatin.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.black_overlay));
                 lineSearch.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.green));
                 history.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.black_overlay));
+
+                startActivity(new Intent(DashBoardActivity.this, SearchActivity.class));
             }
         });
 
@@ -126,6 +153,8 @@ public class DashBoardActivity extends AppCompatActivity
                 lineLocatin.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.black_overlay));
                 lineSearch.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.black_overlay));
                 history.setBackgroundColor(ContextCompat.getColor(DashBoardActivity.this, R.color.green));
+
+                startActivity(new Intent(DashBoardActivity.this, HistoryActivity.class));
             }
         });
     }
@@ -142,21 +171,18 @@ public class DashBoardActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.dash_board, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_setting) {
-            return true;
+            startActivity(new Intent(DashBoardActivity.this, SettingsActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
