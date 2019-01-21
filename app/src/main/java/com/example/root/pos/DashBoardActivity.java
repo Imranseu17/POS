@@ -20,6 +20,7 @@ import com.example.root.pos.activities.ProfileActivity;
 import com.example.root.pos.activities.SaleActivity;
 import com.example.root.pos.activities.SearchActivity;
 import com.example.root.pos.databinding.ActivityDashBoardBinding;
+import com.example.root.pos.databinding.ActivityDashBoardBindingImpl;
 import com.example.root.pos.model.Home;
 
 import butterknife.BindView;
@@ -29,7 +30,9 @@ public class DashBoardActivity extends AppCompatActivity
 
 {
 
-    ActivityDashBoardBinding home ;
+    public static DashBoardActivity  dashBoardActivity;
+
+    ActivityDashBoardBindingImpl home ;
 
     @BindView(R.id.product_sale)
     CardView productsale;
@@ -75,6 +78,8 @@ public class DashBoardActivity extends AppCompatActivity
 
         ButterKnife.bind(this);
         setTitle("     Home");
+
+        dashBoardActivity = this;
 
         home.setHome(new Home("Product Sale", "Profile","Location","Search","Sales History"));
         setSupportActionBar(toolbar);
