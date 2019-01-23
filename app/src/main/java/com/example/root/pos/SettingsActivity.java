@@ -8,7 +8,6 @@ import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
@@ -57,7 +56,6 @@ public class SettingsActivity extends AppCompatActivity implements LanguageSelec
     @BindView(R.id.img_signout)
     ImageView  img_signout;
 
-    ActionBar actionBar;
 
 
 
@@ -65,19 +63,21 @@ public class SettingsActivity extends AppCompatActivity implements LanguageSelec
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         settingsBinding = DataBindingUtil.setContentView(this,R.layout.activity_settings);
-        actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+
+        ButterKnife.bind(this);
+
+
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        ButterKnife.bind(this);
+
         closeOptionsMenu();
-        setTitle("  Settings");
+        setTitle(R.string.settings);
         mLanguageDialog = new LanguageCustomDialog();
         Drawable drawable = ContextCompat.getDrawable(this, R.drawable.ic_clear_all_black_24dp);
         toolbar.setNavigationIcon(drawable);
-        setSupportActionBar(toolbar);
-        settingsBinding.setSettings(new Settings(" Language",
-                " Sign Out"));
+       settingsBinding.setSettings(new Settings(getString(R.string.language),
+                getString(R.string.signOut)));
 
         language.setOnClickListener(new View.OnClickListener() {
             @Override

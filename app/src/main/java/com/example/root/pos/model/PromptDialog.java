@@ -8,10 +8,16 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.root.pos.R;
@@ -42,22 +48,68 @@ public class PromptDialog extends Dialog {
 
     public PromptDialog(Context context, int theme) {
         super(context, R.style.color_dialog);
-
+        init();
     }
 
-
+    private void init() {
+        mAnimIn = AnimationLoader.getInAnimation(getContext());
+        mAnimOut = AnimationLoader.getOutAnimation(getContext());
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        initView();
 
         initListener();
 
     }
 
+    private void initView() {
+        View contentView = View.inflate(getContext(), R.layout.layout_promptdialog, null);
+        setContentView(contentView);
+        resizeDialog();
 
+        mDialogView = getWindow().getDecorView().findViewById(android.R.id.content);
+        mTitleTv = (TextView) contentView.findViewById(R.id.tvTitle);
+        mContentTv = (TextView) contentView.findViewById(R.id.tvContent);
+        mPositiveBtn = (TextView) contentView.findViewById(R.id.btnPositive);
+
+        View llBtnGroup = findViewById(R.id.llBtnGroup);
+        ImageView logoIv = (ImageView) contentView.findViewById(R.id.logoIv);
+        logoIv.setBackgroundResource(getLogoResId(mDialogType));
+
+        LinearLayout topLayout = (LinearLayout) contentView.findViewById(R.id.topLayout);
+        ImageView triangleIv = new ImageView(getContext());
+        triangleIv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DisplayUtil.dp2px(getContext(), 10)));
+        triangleIv.setImageBitmap(createTriangel((int) (DisplayUtil.getScreenSize(getContext()).x * 0.7), DisplayUtil.dp2px(getContext(), 10)));
+        topLayout.addView(triangleIv);
+
+        setBtnBackground(mPositiveBtn);
+        setBottomCorners(llBtnGroup);
+
+
+        int radius = DisplayUtil.dp2px(getContext(), DEFAULT_RADIUS);
+        float[] outerRadii = new float[] { radius, radius, radius, radius, 0, 0, 0, 0 };
+        RoundRectShape roundRectShape = new RoundRectShape(outerRadii, null, null);
+        ShapeDrawable shapeDrawable = new ShapeDrawable(roundRectShape);
+        shapeDrawable.getPaint().setStyle(Paint.Style.FILL);
+        shapeDrawable.getPaint().setColor(getContext().getResources().getColor(getColorResId(mDialogType)));
+        LinearLayout llTop = (LinearLayout) findViewById(R.id.llTop);
+        llTop.setBackground(shapeDrawable);
+
+        mTitleTv.setText(mTitle);
+        mContentTv.setText(mContent);
+        mPositiveBtn.setText(mBtnText);
+    }
+
+    private void resizeDialog() {
+        WindowManager.LayoutParams params = getWindow().getAttributes();
+        params.width = (int)(DisplayUtil.getScreenSize(getContext()).x * 0.7);
+        getWindow().setAttributes(params);
+    }
 
     @Override
     protected void onStart() {
@@ -84,7 +136,27 @@ public class PromptDialog extends Dialog {
         }
     }
 
-
+    private int getLogoResId(int mDialogType) {
+        if (DIALOG_TYPE_DEFAULT == mDialogType) {
+            return R.mipmap.ic_info;
+        }
+        if (DIALOG_TYPE_INFO == mDialogType) {
+            return R.mipmap.ic_info;
+        }
+        if (DIALOG_TYPE_HELP == mDialogType) {
+            return R.mipmap.ic_help;
+        }
+        if (DIALOG_TYPE_WRONG == mDialogType) {
+            return R.mipmap.ic_wrong;
+        }
+        if (DIALOG_TYPE_SUCCESS == mDialogType) {
+            return R.mipmap.ic_success;
+        }
+        if (DIALOG_TYPE_WARNING == mDialogType) {
+            return R.mipmap.icon_warning;
+        }
+        return R.mipmap.ic_info;
+    }
 
     private int getColorResId(int mDialogType) {
         if (DIALOG_TYPE_DEFAULT == mDialogType) {
@@ -201,7 +273,15 @@ public class PromptDialog extends Dialog {
     }
 
 
-
+    private void setBottomCorners(View llBtnGroup) {
+        int radius = DisplayUtil.dp2px(getContext(), DEFAULT_RADIUS);
+        float[] outerRadii = new float[] { 0, 0, 0, 0, radius, radius, radius, radius };
+        RoundRectShape roundRectShape = new RoundRectShape(outerRadii, null, null);
+        ShapeDrawable shapeDrawable = new ShapeDrawable(roundRectShape);
+        shapeDrawable.getPaint().setColor(Color.WHITE);
+        shapeDrawable.getPaint().setStyle(Paint.Style.FILL);
+        llBtnGroup.setBackgroundDrawable(shapeDrawable);
+    }
 
     private ColorStateList createColorStateList(int normal, int pressed) {
         return createColorStateList(normal, pressed, Color.BLACK, Color.BLACK);

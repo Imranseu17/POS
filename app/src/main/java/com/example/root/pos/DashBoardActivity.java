@@ -32,7 +32,7 @@ public class DashBoardActivity extends AppCompatActivity
 
     public static DashBoardActivity  dashBoardActivity;
 
-    ActivityDashBoardBindingImpl home ;
+    ActivityDashBoardBinding home ;
 
     @BindView(R.id.product_sale)
     CardView productsale;
@@ -77,11 +77,12 @@ public class DashBoardActivity extends AppCompatActivity
         home = DataBindingUtil.setContentView(this,R.layout.activity_dash_board);
 
         ButterKnife.bind(this);
-        setTitle("     Home");
+        setTitle(R.string.home);
 
         dashBoardActivity = this;
 
-        home.setHome(new Home("Product Sale", "Profile","Location","Search","Sales History"));
+        home.setHome(new Home(getString(R.string.productSale), getString(R.string.profile),
+                getString(R.string.location),getString(R.string.search),getString(R.string.sales_history)));
         setSupportActionBar(toolbar);
 
 

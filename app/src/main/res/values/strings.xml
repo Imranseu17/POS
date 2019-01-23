@@ -1,5 +1,5 @@
-<resources>
-    <string name="app_name">POS</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" translatable="false">POS</string>
     <string name="title_activity_dash_board" translatable="false">DashBoardActivity</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
@@ -8,7 +8,7 @@
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings" translatable="false">Settings</string>
 
-    <string name="preference_file_key" translatable="false">preference_file_key</string>
+    <string name="preference_file_key" translatable="false" tools:ignore="ExtraTranslation">preference_file_key</string>
     <string name="preference_access_token" translatable="false">preference_access_token</string>
     <string name="preference_is_service_check" translatable="false">preference_is_service_check</string>
     <string name="preference_language_key" translatable="false">preference_language_key</string>
@@ -27,9 +27,24 @@
     <string name="preference_card_status" translatable="false">preference_card_status</string>
     <string name="preference_prepaid_code" translatable="false">preference_prepaid_code</string>
     <string name="preference_payment_id" translatable="false">preference_payment_id</string>
-    <string name="logout">Sign Out</string>
-    <string name="info_want_to_logout">You Want to Sign Out this App</string>
-    <string name="cancel">cancel</string>
-    <string name="yes">yes</string>
+    <string name="logout" translatable="false">Sign Out</string>
+    <string name="info_want_to_logout" translatable="false">You Want to Sign Out this App</string>
+    <string name="cancel" translatable="false">cancel</string>
+    <string name="yes" translatable="false">yes</string>
+    <string name="userName">USERNAME</string>
+    <string name="password">Password</string>
+    <string name="language">Language</string>
+    <string name="signOut">SignOut</string>
+    <string name="settings">Settings</string>
+    <string name="home">DashBoard</string>
+    <string name="productSale">Product Sale</string>
+    <string name="profile">Profile</string>
+    <string name="location">Location</string>
+    <string name="search">Search</string>
+    <string name="sales_history">Sales History</string>
+    <string name="update">Update</string>
+
+    <string name="my_api_key" translatable="false">AIzaSyDhBFlAGYWIYCI76782LDj-pl_LgrZW8MI</string>
+
 
 </resources>

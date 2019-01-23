@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">POS</string>
-    <string name="logout">Sign Out</string>
-    <string name="info_want_to_logout">You Want to Sign Out this App</string>
-    <string name="cancel">cancel</string>
-    <string name="yes">yes</string>
+    <string name="userName">ব্যবহারকারীর নাম</string>
+    <string name="password">পাসওয়ার্ড</string>
+    <string name="language"> ভাষা  </string>
+    <string name="signOut"> সাইন আউট  </string>
+    <string name="settings">সেটিংস</string>
+    <string name="home">ড্যাশবোর্ড</string>
+    <string name="productSale">পণ্য বিক্রয়</string>
+    <string name="profile">প্রোফাইলের</string>
+    <string name="location">অবস্থান</string>
+    <string name="search">অনুসন্ধান</string>
+    <string name="sales_history">বিক্রয় ইতিহাস</string>
+    <string name="update">Update</string>
 </resources>
