@@ -30,8 +30,7 @@
     <string name="logout" translatable="false">Sign Out</string>
     <string name="info_want_to_logout" translatable="false">You Want to Sign Out this App</string>
     <string name="cancel" translatable="false">cancel</string>
-    <string name="yes" translatable="false">yes</string>
-    <string name="userName">USERNAME</string>
+    <string name="username">USERNAME</string>
     <string name="password">Password</string>
     <string name="language">Language</string>
     <string name="signOut">SignOut</string>
@@ -44,7 +43,19 @@
     <string name="sales_history">Sales History</string>
     <string name="update">Update</string>
 
+
+    <string name="success" translatable="false">Success</string>
+    <string name="help" translatable="false">Help</string>
+    <string name="info" translatable="false">Info</string>
+    <string name="err" translatable="false">Error</string>
+    <string name="warning" translatable="false">Warning</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="yes" translatable="false">Yes</string>
+
+
+
     <string name="my_api_key" translatable="false">AIzaSyDhBFlAGYWIYCI76782LDj-pl_LgrZW8MI</string>
+    <string name="no_internet_connection" translatable="false">No internet connection</string>
 
 
 </resources>

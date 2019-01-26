@@ -2,6 +2,7 @@ package com.example.root.pos;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -20,7 +21,7 @@ import com.example.root.pos.activities.ProfileActivity;
 import com.example.root.pos.activities.SaleActivity;
 import com.example.root.pos.activities.SearchActivity;
 import com.example.root.pos.databinding.ActivityDashBoardBinding;
-import com.example.root.pos.databinding.ActivityDashBoardBindingImpl;
+
 import com.example.root.pos.model.Home;
 
 import butterknife.BindView;
@@ -83,14 +84,14 @@ public class DashBoardActivity extends AppCompatActivity
 
         home.setHome(new Home(getString(R.string.productSale), getString(R.string.profile),
                 getString(R.string.location),getString(R.string.search),getString(R.string.sales_history)));
+
+        Drawable drawable = ContextCompat.getDrawable(this, R.drawable.ic_clear_all_black_24dp);
+        toolbar.setNavigationIcon(drawable);
         setSupportActionBar(toolbar);
 
 
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+
 
 
         productsale.setOnClickListener(new View.OnClickListener() {
@@ -167,12 +168,7 @@ public class DashBoardActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+
     }
 
     @Override

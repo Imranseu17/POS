@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="userName">ব্যবহারকারীর নাম</string>
+    <string name="username">ব্যবহারকারীর নাম</string>
     <string name="password">পাসওয়ার্ড</string>
     <string name="language"> ভাষা  </string>
     <string name="signOut"> সাইন আউট  </string>

@@ -2,12 +2,12 @@ package com.example.root.pos.model;
 
 public class LoginPage {
 
-    public String userName;
+    public String username;
 
     public String password;
 
-    public LoginPage(String userName, String password) {
-        this.userName = userName;
+    public LoginPage(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 }
