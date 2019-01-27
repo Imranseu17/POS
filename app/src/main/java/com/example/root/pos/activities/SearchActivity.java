@@ -11,6 +11,7 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
 
 import com.example.root.pos.R;
+import com.example.root.pos.databinding.ActivitySearchBinding;
 import com.example.root.pos.databinding.ActivitySearchBindingImpl;
 import com.example.root.pos.model.Search;
 
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
 
 public class SearchActivity extends AppCompatActivity {
 
-    ActivitySearchBindingImpl activitySearchBinding;
+    ActivitySearchBinding activitySearchBinding;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;

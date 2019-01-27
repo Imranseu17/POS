@@ -8,7 +8,7 @@
             type="com.example.root.pos.model.User"/>
 
         <variable name="activity"
-            type="com.example.root.pos.CreateAccountActivity"/>
+            type="com.example.root.pos.CreateAccount"/>
     </data>
 
 
@@ -24,7 +24,7 @@
             android:paddingTop="56dp"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
-            tools:context=".CreateAccountActivity">
+            tools:context=".CreateAccount">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 app:errorEnabled="true"
-                android:id="@+id/userName"
+                android:id="@+id/username"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp">
                 <android.support.design.widget.TextInputEditText
@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:textStyle="italic"
-                    android:hint="@{user.userName}" />
+                    android:hint="@{user.username}" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
