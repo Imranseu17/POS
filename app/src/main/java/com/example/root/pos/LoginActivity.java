@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -38,12 +39,20 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
 
     public void onLogin(){
-       submitLogin();
+        boolean response = checkEditTextIsEmptyOrNot();
+
+        if(response){
+            submitLogin();
+        }
+        else CustomAlertDialog.showError(this,"Please fill the form first");
+
     }
 
     public void onCreateAccount(){
 
         startActivity(new Intent(LoginActivity.this, CreateAccount.class));
+
+
     }
 
     @Override
@@ -73,8 +82,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         if (checkConnection()) {
             String username = userName.getText().toString().trim();
             String password = passwordText.getText().toString().trim();
-            loginPresenter.login(username,password);
-
+                loginPresenter.login(username,password);
         } else CustomAlertDialog.showError(this,getString(R.string.no_internet_connection));
     }
 
@@ -107,6 +115,24 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm.getActiveNetworkInfo() != null;
+    }
+
+    public  boolean checkEditTextIsEmptyOrNot() {
+        String EmailHolder, PasswordHolder;
+
+
+        EmailHolder = userName.getText().toString().trim();
+        PasswordHolder = passwordText.getText().toString().trim();
+
+        if (TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(PasswordHolder)) {
+
+
+            return false;
+
+        } else {
+
+            return true;
+        }
     }
 
 
