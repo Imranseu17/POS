@@ -1,10 +1,8 @@
 package com.example.root.pos.presenter;
 
-import android.util.Log;
-
-import com.example.root.pos.callbacks.LoginView;
+import com.example.root.pos.callbacks.ProfileView;
 import com.example.root.pos.errors.APIErrors;
-
+import com.example.root.pos.model.UserData;
 import com.example.root.pos.services.APIClient;
 
 import org.json.JSONObject;
@@ -18,13 +16,12 @@ import retrofit2.Callback;
 import retrofit2.HttpException;
 import retrofit2.Response;
 
-public class LoginPresenter {
+public class ProfilePresenter {
 
+    private ProfileView mViewInterface;
     private APIClient mApiClient;
-    private LoginView mViewInterface;
 
-
-    public LoginPresenter(LoginView view) {
+    public ProfilePresenter(ProfileView view) {
         this.mViewInterface = view;
 
         if (this.mApiClient == null) {
@@ -32,46 +29,37 @@ public class LoginPresenter {
         }
     }
 
+    public void profile(String  username) {
+        
 
-
-
-    public void login(final String username, final String password) {
-
-
+      
 
         mApiClient.getAPI()
-                .login(username, password)
-                .enqueue(new Callback<ResponseBody>() {
+                .onProfile(username)
+                .enqueue(new Callback<UserData>() {
                     @Override
-                    public void onResponse(Call<ResponseBody> call,
-                                           Response<ResponseBody> response) {
+                    public void onResponse(Call<UserData> call, Response<UserData> response) {
 
 
                         if (response.isSuccessful()) {
-
-                            try {
-                                if (response.body().string().contains("Login Successfully")) {
-                                    mViewInterface.onLogin("Login Successfully");
-                                } else {
-                                    mViewInterface.onError("username or password is does not matched");
-                                }
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                            UserData UserData = response.body();
+                            if (UserData != null) {
+                                mViewInterface.onSuccess(UserData);
+                            } else {
+                                mViewInterface.onError("Error fetching data");
                             }
-
                         } else errorHandle(response.code(), response.errorBody());
+
+
                     }
 
                     @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable e) {
-                        Log.e("Error",call.request().toString());
+                    public void onFailure(Call<UserData> call, Throwable e) {
+                        e.printStackTrace();
                         if (e instanceof HttpException) {
-
                             int code = ((HttpException) e).response().code();
-
                             ResponseBody responseBody = ((HttpException) e).response().errorBody();
-                            mViewInterface.onError(APIErrors.get500ErrorMessage(responseBody));
-                            errorHandle(code,responseBody);
+                            errorHandle(code, responseBody);
 
                         } else if (e instanceof SocketTimeoutException) {
 
@@ -97,6 +85,8 @@ public class LoginPresenter {
         }
         else mViewInterface.onError(APIErrors.getErrorMessage(responseBody));
     }
+
+
 
 
 }

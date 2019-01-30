@@ -32,7 +32,7 @@ public class UserPresenter {
 
     public void onsaveUser(String name, String username,
                            String password, String confirmpassword,
-                           String address) {
+                           String address,String occupationnname, String phonenumber) {
 
 
         JsonObject jsonObject = new JsonObject();
@@ -41,6 +41,8 @@ public class UserPresenter {
         jsonObject.addProperty("password", password);
         jsonObject.addProperty("confirmpassword", confirmpassword);
         jsonObject.addProperty("address", address);
+        jsonObject.addProperty("occupationnname", occupationnname);
+        jsonObject.addProperty("phonenumber", phonenumber);
 
 
 

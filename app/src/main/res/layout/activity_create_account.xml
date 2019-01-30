@@ -21,7 +21,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="56dp"
+            android:paddingTop="10dp"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
             tools:context=".CreateAccount">
@@ -30,9 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                app:errorEnabled="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
+                app:errorEnabled="true">
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -46,9 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                app:errorEnabled="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
+                app:errorEnabled="true">
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -62,9 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                app:errorEnabled="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
+                app:errorEnabled="true">
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -78,9 +72,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                app:errorEnabled="true">
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:id="@+id/phonnumber"
+                    android:textStyle="italic"
+                    android:hint="@{user.phonenumber}" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                app:errorEnabled="true">
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:id="@+id/occupationnname"
+                    android:textStyle="italic"
+                    android:hint="@{user.occupationnname}" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 app:errorEnabled="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
                 app:passwordToggleEnabled="true">
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
@@ -96,8 +116,6 @@
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 app:errorEnabled="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
                 app:passwordToggleEnabled="true">
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
@@ -115,7 +133,7 @@
                 android:layout_gravity="center"
                 android:textStyle="italic"
                 android:background="@color/colorPrimary"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="24dp"
                 android:padding="12dp"
                 android:onClick="@{(view) -> activity.onSubmit()}"

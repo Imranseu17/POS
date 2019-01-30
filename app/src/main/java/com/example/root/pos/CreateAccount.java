@@ -8,13 +8,13 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
-import android.widget.Toast;
+
 
 import com.example.root.pos.callbacks.UserView;
 import com.example.root.pos.databinding.ActivityCreateAccountBinding;
 import com.example.root.pos.dialogs.CustomAlertDialog;
 import com.example.root.pos.model.User;
-import com.example.root.pos.model.UserData;
+
 import com.example.root.pos.presenter.UserPresenter;
 
 import butterknife.BindView;
@@ -38,6 +38,12 @@ public class CreateAccount extends Activity implements UserView {
 
     @BindView(R.id.confirmPassword)
     TextInputEditText confirmPassword;
+
+    @BindView(R.id.occupationnname)
+    TextInputEditText occupationname;
+
+    @BindView(R.id.phonnumber)
+    TextInputEditText phoneNumber;
 
     @BindView(R.id.submit)
     AppCompatButton submit;
@@ -74,7 +80,9 @@ public class CreateAccount extends Activity implements UserView {
         ButterKnife.bind(this);
         userPresenter = new UserPresenter(this);
         activityCreateAccountBinding.setActivity(this);
-        activityCreateAccountBinding.setUser(new User("Name","UserName","Address","Password","ConfirmPassword"));
+        activityCreateAccountBinding.setUser(new User("Name","UserName",
+                "Address","Password","ConfirmPassword",
+                "Phone Number","Occupation Name" ));
 
     }
 
@@ -87,6 +95,8 @@ public class CreateAccount extends Activity implements UserView {
         password.setText("");
         confirmPassword.setText("");
         address.setText("");
+        occupationname.setText("");
+        phoneNumber.setText("");
 
     }
 
@@ -103,7 +113,10 @@ public class CreateAccount extends Activity implements UserView {
             String passwordInput = password.getText().toString().trim();
             String confirmpasswordInput = confirmPassword.getText().toString().trim();
             String addressInput = address.getText().toString().trim();
-            userPresenter.onsaveUser(nameInput,usernameInput,passwordInput,confirmpasswordInput,addressInput);
+            String occupationnameInput = occupationname.getText().toString().trim();
+            String phoneNumberInput = phoneNumber.getText().toString().trim();
+            userPresenter.onsaveUser(nameInput,usernameInput,passwordInput,confirmpasswordInput,
+                    addressInput,occupationnameInput,phoneNumberInput);
         } else CustomAlertDialog.showError(this,getString(R.string.no_internet_connection));
     }
 
@@ -122,10 +135,13 @@ public class CreateAccount extends Activity implements UserView {
         String passwordInput = password.getText().toString().trim();
         String confirmpasswordInput = confirmPassword.getText().toString().trim();
         String addressInput = address.getText().toString().trim();
+        String occupationnameInput = occupationname.getText().toString().trim();
+        String phoneNumberInput = phoneNumber.getText().toString().trim();
 
         if (TextUtils.isEmpty(nameInput) || TextUtils.isEmpty(usernameInput)
                 || TextUtils.isEmpty(passwordInput) || TextUtils.isEmpty(confirmpasswordInput)
-                || TextUtils.isEmpty(addressInput)) {
+                || TextUtils.isEmpty(addressInput) || TextUtils.isEmpty(occupationnameInput)
+                || TextUtils.isEmpty(phoneNumberInput)) {
 
             return false;
 

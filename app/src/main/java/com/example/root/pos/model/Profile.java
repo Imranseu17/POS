@@ -8,15 +8,15 @@ public class Profile {
 
     public String phoneNumber;
 
-    public String shopName;
+    public String occupationnname;
 
     public String address;
 
-    public Profile(String name, String email, String phoneNumber, String shopName, String address) {
+    public Profile(String name, String email, String phoneNumber, String occupationnname, String address) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.shopName = shopName;
+        this.occupationnname = occupationnname;
         this.address = address;
     }
 }

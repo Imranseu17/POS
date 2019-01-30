@@ -81,7 +81,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/salesManPhone"
+        android:id="@+id/shopName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         app:errorEnabled="true"
         android:layout_marginLeft="10dp"
@@ -118,7 +118,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/shopName"
+        android:id="@+id/occupationnname"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         app:errorEnabled="true"
         android:layout_marginLeft="10dp"

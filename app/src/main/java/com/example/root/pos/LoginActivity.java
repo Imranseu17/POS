@@ -70,10 +70,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private void submitLogin() {
 
 
-        String username = userName.getText().toString().trim();
-        SharedDataSaveLoad.save(this,getString(R.string.preference_user_name),username);
+
         hideKeyboard(this);
         getLogin();
+        String username = userName.getText().toString().trim();
+        SharedDataSaveLoad.save(this,getString(R.string.preference_user_name),username);
 
     }
 
@@ -90,8 +91,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void onLogin(String message) {
-        startActivity(new Intent(LoginActivity.this,DashBoardActivity.class));
+
         CustomAlertDialog.showSuccess(this,message);
+        startActivity(new Intent(LoginActivity.this,DashBoardActivity.class));
     }
 
     @Override

@@ -43,13 +43,13 @@
             android:layout_height="350dp"
             android:orientation="vertical">
             <ImageView
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:id="@+id/imgCricle"/>
             <TextView
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -121,8 +121,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:id="@+id/shopName"
-                android:text="@{profile.shopName}"/>
+                android:id="@+id/occupationnname"
+                android:text="@{profile.occupationnname}"/>
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="25dp"
