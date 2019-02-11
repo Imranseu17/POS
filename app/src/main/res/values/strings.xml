@@ -53,9 +53,19 @@
     <string name="yes" translatable="false">Yes</string>
 
 
-
     <string name="my_api_key" translatable="false">AIzaSyDhBFlAGYWIYCI76782LDj-pl_LgrZW8MI</string>
     <string name="no_internet_connection" translatable="false">No internet connection</string>
+    <string name="userID" translatable="false">userID</string>
+    <string name="name" translatable="false">name</string>
+    <string name="passwordSave" translatable="false">password</string>
+    <string name="confirmpassword" translatable="false">confirmpassword</string>
+    <string name="address" translatable="false">address</string>
+    <string name="phonenumber" translatable="false">phonenumber</string>
+    <string name="occupationname" translatable="false">occupationnname</string>
+    <string name="imagePath" translatable="false">imagePath</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

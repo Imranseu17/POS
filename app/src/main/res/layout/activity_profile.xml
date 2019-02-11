@@ -9,6 +9,10 @@
             name="profile"
             type="com.example.root.pos.model.Profile"/>
 
+        <variable
+            name="activity"
+            type="com.example.root.pos.activities.ProfileActivity"/>
+
     </data>
 
 
@@ -47,6 +51,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:onClick="@{(view) -> activity.onShowImage()}"
                 android:id="@+id/imgCricle"/>
             <TextView
                 android:layout_marginTop="5dp"
@@ -152,6 +157,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/update"
+        android:onClick="@{(view) -> activity.onUpdateAccount()}"
         android:text="@string/update"
         android:layout_marginTop="@dimen/_10sdp"/>
 
