@@ -1,14 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.PreviousOrderFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+        <variable
+            name="fragment"
+            type="com.example.root.pos.framentmodel.Order"/>
+
+    </data>
+
+
+
+    <TableLayout
+
+        android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:stretchColumns="0,1,2"
+        android:id="@+id/tableView"
+        android:gravity="center">
 
-</FrameLayout>
+
+
+        <TableRow
+            android:background="@drawable/cell_shape"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            >
+            <TableRow
+                android:background="#000000"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                >
+
+
+
+            </TableRow>
+        </TableRow>
+        <TableRow
+            android:background="#000000"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+
+
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@{fragment.productName}"
+                android:layout_margin="1dp"
+                android:layout_column="0"
+                android:background="@drawable/cell_shape"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@{fragment.quentity}"
+                android:layout_margin="1dp"
+                android:layout_column="1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@{fragment.price}"
+                android:layout_margin="1dp"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_column="2"
+                />
+        </TableRow>
+
+        <TableRow
+            android:background="#000000"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:id="@+id/row1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/cell1"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_margin="1dp"
+                android:layout_column="0"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/cell2"
+                android:layout_margin="1dp"
+                android:layout_column="1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/cell3"
+                android:layout_margin="1dp"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:layout_column="2" />
+        </TableRow>
+
+
+
+        <TableRow
+            android:background="#000000"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:id="@+id/row2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/cell4"
+                android:layout_margin="1dp"
+                android:layout_column="0"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/cell5"
+                android:layout_margin="1dp"
+                android:layout_column="1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/cell6"
+                android:layout_margin="1dp"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:layout_column="2" />
+        </TableRow>
+
+        <TableRow
+            android:background="#000000"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:id="@+id/row3">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/cell7"
+                android:layout_margin="1dp"
+                android:layout_column="0"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/cell8"
+                android:layout_margin="1dp"
+                android:layout_column="1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/cell9"
+                android:layout_margin="1dp"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:layout_column="2" />
+        </TableRow>
+
+
+    </TableLayout>
+</layout>

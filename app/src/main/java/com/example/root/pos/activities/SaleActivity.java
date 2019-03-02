@@ -11,8 +11,8 @@ import android.support.v7.widget.Toolbar;
 
 import com.example.root.pos.R;
 import com.example.root.pos.adapter.ViewPagerAdapter;
+import com.example.root.pos.fragment.FragmentPreviousOrder;
 import com.example.root.pos.fragment.NewOrderFragment;
-import com.example.root.pos.fragment.PreviousOrderFragment;
 import com.example.root.pos.fragment.ProductFragment;
 
 import butterknife.BindView;
@@ -48,7 +48,7 @@ public class SaleActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new ProductFragment(), "Product");
-        adapter.addFragment(new PreviousOrderFragment(), "Previous Order");
+        adapter.addFragment(new FragmentPreviousOrder(), "Previous Order");
         adapter.addFragment(new NewOrderFragment(), "New Order");
         viewPager.setAdapter(adapter);
     }
